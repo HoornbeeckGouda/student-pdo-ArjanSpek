@@ -1,5 +1,5 @@
 <?php
-include 'header.php';
+include './header.php';
 
 
 // initialiseren/declareren
@@ -55,5 +55,5 @@ $table_student = $table_header . $contentTable . "</table>";
 echo $table_student;
 
 
-include 'Footer.php';
+include './Footer.php';
 ?>
