@@ -1,23 +1,13 @@
 <?php
-
 //echo 'PDO-drivers ingesteld in PHP.INI: <br>';
-
 //print_r(PDO::getAvailableDrivers());
-
 //Initialisatie
-
 define('HOST', 'localhost');
-
 define('DATABASE', 'student');
-
 define('USER', 'webuser');
-
 define('PASSWORD','7q06DXjDr1Z3reXK');
 
- 
-
 $dbconn='';
-
 //connectie maken
 
 try {
@@ -29,4 +19,3 @@ catch (PDOException $e) {
     echo $e->getMessage();
     echo "verbinding NIET gemaakt<br>";
 }
-

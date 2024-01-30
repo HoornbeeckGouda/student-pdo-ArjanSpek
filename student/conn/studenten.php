@@ -1,15 +1,7 @@
 <?php
-include 'conn/database.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Studenten</title>
-    <link rel="stylesheet" type="text/css" href="css/student.css">
-</head>
-<body>
-<?php
+include 'header.php';
+
+
 // initialiseren/declareren
 $contentTable = "";
 //tabelkop samenstellen
@@ -61,8 +53,7 @@ if ($count_records>0) { // wel studenten ophalen
 $table_student = $table_header . $contentTable . "</table>";
 
 echo $table_student;
+
+
+include 'Footer.php';
 ?>
-
-
-</body>
-</html>

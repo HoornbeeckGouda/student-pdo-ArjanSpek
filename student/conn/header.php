@@ -1,14 +1,11 @@
 <?php
-$table_header = '<table id="students">
-                    <tr>
-                        <th>studentnr</th>
-                        <th>voornaam</th>
-                        <th>tussenvoegsel</th>
-                        <th>achternaam</th>
-                        <th>straat</th>
-                        <th>postcode</th>
-                        <th>woonplaats</th>
-                        <th>email</th>
-                        <th>klas</th>
-                        <th>geboortedatum</th>
-                    </tr>';
+include 'db/database.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Studenten</title>
+    <link rel="stylesheet" type="text/css" href="css/student.css">
+</head>
+<body>
