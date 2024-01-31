@@ -23,3 +23,7 @@ h1 {
     font-size: 15px;
     margin-top: 5px;
 }
+
+.submit:hover {
+    cursor: pointer;
+}
