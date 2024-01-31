@@ -1,7 +1,8 @@
 .main-content {
     display: flex;
-    align-self: center;
+    align-items: center;
+}
+
+#login {
     margin: auto;
-    width: 100%;
-    height: 100%;
 }
