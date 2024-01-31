@@ -1,5 +1,5 @@
 <?php
-include 'inc/header.php';
+include '../inc/header.php';
 //database checken of inlognaam en wachtwoord overeenkomen
 if ($_POST=['submit']) {
     $inlognaam=isset($_POST['inlognaam']) ? $_POST['inlognaam'] : '';
