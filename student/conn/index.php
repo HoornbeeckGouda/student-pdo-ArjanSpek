@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./css/inlog.css">
+    <link rel="stylesheet" type="text/css" href="../css/inlog.css">
 </head>
 <body>
-    <!--hier maken we de login formulier-->
+    <!--hier maken we het login formulier-->
     <main class="main-content">
         <div id="login">
             <div>
