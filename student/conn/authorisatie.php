@@ -13,6 +13,7 @@ $query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
 //query uitvoeren
 $result = mysqli_query($dbconn, $query);
+//het aantal rows met die naam en wachtwoord ophalen
 $aantal = mysqli_num_rows($result);
 if ($aantal == 1){
     header('refresh: 1, studenten.php');
