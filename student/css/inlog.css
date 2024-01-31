@@ -1,6 +1,11 @@
+body {
+    height: 100%;
+}
+
 .main-content {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 #login {
