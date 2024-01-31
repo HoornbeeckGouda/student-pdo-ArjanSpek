@@ -1,5 +1,7 @@
 <?php
+
 include '../inc/header.php';
+
 //database checken of inlognaam en wachtwoord overeenkomen
 if ($_POST=['submit']) {
     $inlognaam=isset($_POST['inlognaam']) ? $_POST['inlognaam'] : '';
@@ -9,5 +11,14 @@ if ($_POST=['submit']) {
 }
 $query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
+//query uitvoeren
+$result = mysqli_query($dbconn, $query);
+if {
+    $_SESSION['inlognaam'] = $inlognaam;
+    $_SESSION['wachtwoord'] = $wachtwoord;
+    header('refresh: 1, studenten.php');
+} else{
+    header('refresh: 1, index.php');
+}
 
 ?>
