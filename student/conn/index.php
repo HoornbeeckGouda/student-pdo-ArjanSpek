@@ -9,12 +9,15 @@
 </head>
 <body>
     <!--hier maken we het login formulier-->
-    <form action="authorisatie.php" method="POST" class="frmlogin" >
-        <label for="fInlog">Inlognaam:</label><br>
-        <input type="text" name="inlognaam" id="fInlog" size="25" placeholder="inlognaam..."><br>
-        <label for="fWachtwoord">Wachtwoord:</label><br>
-        <input type="password" id="fWachtwoord" name="wachtwoord" size="25" placeholder="wachtwoord..."><br>
-        <input type="submit" name="submit" value="login"><br>
-    </form>
+    <div id="login">
+        <h1>Login</h1>
+        <form action="authorisatie.php" method="POST" class="frmlogin" >
+            <label for="fInlog">Inlognaam:</label><br>
+            <input type="text" name="inlognaam" id="fInlog" size="25" placeholder="inlognaam..." class="login-text"><br>
+            <label for="fWachtwoord">Wachtwoord:</label><br>
+            <input type="password" id="fWachtwoord" name="wachtwoord" size="25" placeholder="wachtwoord..." class="login-text"><br>
+            <input type="submit" name="submit" value="login"><br>
+        </form>
+    </div>
 </body>
 </html>
