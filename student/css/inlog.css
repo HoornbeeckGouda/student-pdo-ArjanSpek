@@ -13,3 +13,10 @@ h1 {
     padding: 5px;
     border-radius: 10px;
 }
+
+.submit {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
