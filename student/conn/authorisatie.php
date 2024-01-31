@@ -13,9 +13,8 @@ $query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
 //query uitvoeren
 $result = mysqli_query($dbconn, $query);
-if {
-    $_SESSION['inlognaam'] = $inlognaam;
-    $_SESSION['wachtwoord'] = $wachtwoord;
+$aantal = mysqli_num_rows($result);
+if ($aantal == 1){
     header('refresh: 1, studenten.php');
 } else{
     header('refresh: 1, index.php');
