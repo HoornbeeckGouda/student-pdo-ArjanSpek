@@ -7,7 +7,7 @@ if ($_POST=['submit']) {
 }else {
     header('refresh: 1, index.php');
 }
-$query = "SELECT  FROM gebruiker
+$query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
 
 ?>
