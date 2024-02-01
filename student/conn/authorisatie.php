@@ -12,7 +12,7 @@ if ($_POST=['submit']) {
 $query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
 //query uitvoeren
-$result = mysqli_query($dbconn, $query);
+$result = $pdo->query($dbconn, $query);
 //het aantal rows met die naam en wachtwoord ophalen
 $aantal = mysqli_num_rows($result);
 if ($aantal == 1){
