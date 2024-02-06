@@ -15,7 +15,8 @@ $query = "SELECT inlognaam, wachtwoord FROM gebruiker
 $result=$dbconn->prepare($query);
 $result->execute();
 $aantal = $result->rowCount();
-if ($aantal == 1){
+echo $aantal;
+if ($aantal >= 1){
     header('refresh: 1, studenten.php');
 } else{
     header('refresh: 1, index.php');
