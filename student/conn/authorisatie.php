@@ -9,7 +9,7 @@ if ($_POST=['submit']) {
 }else {
     header('refresh: 1, index.php');
 }
-$query = "SELECT naam, wachtwoord FROM gebruiker
+$query = "SELECT inlognaam, wachtwoord FROM gebruiker
             where inlognaam='{$inlognaam}' and wachtwoord='{$wachtwoord}';";
 //query uitvoeren
 $result=$dbconn->prepare($query);
