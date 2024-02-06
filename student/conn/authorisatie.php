@@ -14,8 +14,7 @@ $query = "SELECT inlognaam, wachtwoord FROM gebruiker
 //query uitvoeren
 $result=$dbconn->prepare($query);
 $result->execute();
-//het aantal rows met die naam en wachtwoord ophalen
-$aantal = mysqli_num_rows($result);
+$aantal = $result->count();
 if ($aantal == 1){
     header('refresh: 1, studenten.php');
 } else{
