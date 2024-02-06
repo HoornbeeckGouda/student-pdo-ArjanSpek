@@ -10,10 +10,10 @@ if ($_POST=['submit']) {
     header('refresh: 1, index.php');
 }
 $query = "SELECT naam, wachtwoord FROM gebruiker
-            where inlognaam='" . $inlognaam . "' and wachtwoord='" . $wachtwoord . "';";
+            where inlognaam='{$inlognaam}' . and wachtwoord='{$wachtwoord}';";
 //query uitvoeren
 $result = $dbconn->prepare($query);
-$dbconn->execute();
+$result->execute($query);
 //het aantal rows met die naam en wachtwoord ophalen
 $aantal = mysqli_num_rows($result);
 if ($aantal == 1){
