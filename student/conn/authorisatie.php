@@ -12,8 +12,8 @@ if ($_POST=['submit']) {
 $query = "SELECT naam, wachtwoord FROM gebruiker
             where inlognaam='{$inlognaam}' . and wachtwoord='{$wachtwoord}';";
 //query uitvoeren
-$result = $dbconn->prepare($query);
-$result->execute($query);
+$result=$dbconn->prepare($query);
+$result->execute();
 //het aantal rows met die naam en wachtwoord ophalen
 $aantal = mysqli_num_rows($result);
 if ($aantal == 1){
@@ -21,5 +21,7 @@ if ($aantal == 1){
 } else{
     header('refresh: 1, index.php');
 }
+
+include '../inc/footer.php'
 
 ?>
