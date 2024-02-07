@@ -10,12 +10,15 @@ if ($_POST=['submit']) {
     header('refresh: 1, index.php');
 }
 $query = "SELECT inlognaam, wachtwoord FROM gebruiker
-            where inlognaam='{$inlognaam}' and wachtwoord='{$wachtwoord}';";
+            where inlognaam=:username and wachtwoord=:wachtwoord;";
 //query uitvoeren
 $result=$dbconn->prepare($query);
-$result->execute();
+$result->bindParam(':username',$inlognaam);
+$result->bindParam(':wachtwoord',$wachtwoord);
+echo $inlognaam;
+echo $wachtwoord;
+
 $aantal = $result->rowCount();
-echo $aantal;
 if ($aantal >= 1){
     header('refresh: 1, studenten.php');
 } else{
