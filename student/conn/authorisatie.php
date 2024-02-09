@@ -3,7 +3,7 @@
 include '../inc/header.php';
 
 //database checken of inlognaam en wachtwoord overeenkomen
-if ($_POST=['submit']) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inlognaam=isset($_POST['inlognaam']) ? $_POST['inlognaam'] : '';
     $wachtwoord=isset($_POST['wachtwoord']) ? $_POST['wachtwoord'] : '';
 }else {
@@ -15,10 +15,9 @@ $query = "SELECT inlognaam, wachtwoord FROM gebruiker
 $result=$dbconn->prepare($query);
 $result->bindParam(':username',$inlognaam);
 $result->bindParam(':wachtwoord',$wachtwoord);
-echo $inlognaam;
-echo $wachtwoord;
-
 $aantal = $result->rowCount();
+echo $aantal . PHP_EOL;
+echo $result;
 if ($aantal >= 1){
     header('refresh: 1, studenten.php');
 } else{
