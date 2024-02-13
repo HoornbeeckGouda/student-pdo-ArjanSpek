@@ -1,5 +1,5 @@
 <?php
-include 'inc/header.php';
+include '../inc/header.php';
 
 
 // initialiseren/declareren
@@ -32,10 +32,12 @@ $qry_student = "SELECT
                         FROM student
                         ORDER BY achternaam, voornaam;";
 // gegevens query ophalen uit db student
-$result = mysqli_query($dbconn, $qry_student);
-$count_records = mysqli_num_rows($result);
+$result=$dbconn->prepare($qry_student);
+$result->execute();
+$count_records = $result->rowCount();
 if ($count_records>0) { // wel studenten ophalen
-    while ($row=mysqli_fetch_array($result)) {
+    while ($rows = $result->fetchAll(PDO::FETCH_ASSOC)) {
+        foreach ($rows as $row) {
         $contentTable .= "<tr>
                             <td>" . $row['id'] . "</td>
                             <td>" . $row['voornaam'] . "</td>
@@ -48,6 +50,7 @@ if ($count_records>0) { // wel studenten ophalen
                             <td>" . $row['klas'] . "</td>
                             <td>" . $row['geboortedatum'] . "</td>
                         </tr>";
+        }
     }
 }
 $table_student = $table_header . $contentTable . "</table>";
@@ -55,5 +58,5 @@ $table_student = $table_header . $contentTable . "</table>";
 echo $table_student;
 
 
-include 'inc/Footer.php';
+include '../inc/Footer.php';
 ?>

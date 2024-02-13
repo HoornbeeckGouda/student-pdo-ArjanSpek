@@ -6,6 +6,6 @@ include '../db/database.php';
 <head>
     <meta charset="UTF-8">
     <title>Studenten</title>
-    <link rel="stylesheet" type="text/css" href="css/student.css">
+    <link rel="stylesheet" type="text/css" href="../css/student.css">
 </head>
 <body>
