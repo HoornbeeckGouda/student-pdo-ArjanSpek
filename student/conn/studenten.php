@@ -17,6 +17,7 @@ $table_header = '<table id="students">
                         <th>email</th>
                         <th>klas</th>
                         <th>geboortedatum</th>
+                        <th>edit</th>
                     </tr>';
 $qry_student = "SELECT 
                         id, 
@@ -49,6 +50,7 @@ if ($count_records>0) { // wel studenten ophalen
                             <td>" . $row['email'] . "</td>
                             <td>" . $row['klas'] . "</td>
                             <td>" . $row['geboortedatum'] . "</td>
+                            <td></td>
                         </tr>";
         }
     }
