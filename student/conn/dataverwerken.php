@@ -28,14 +28,15 @@ function updateStudentDetail()
 {
     global $dbconn;
     $id = isset($_POST['id']) ? $_POST['id'] : 0;
-    $artikelnr = isset($_POST['voornaam']) ? addslashes($_POST['voornaam']) : "";
-    $omschrijving = isset($_POST['tussen']) ? addslashes($_POST['omschrijving']) : "";
-    $leverancier = isset($_POST['leverancier']) ? addslashes($_POST['leverancier']) : "";
-    $artikelgroep = isset($_POST['artikelgroep']) ? $_POST['artikelgroep'] : "";
-    $eenheid = isset($_POST['eenheid']) ? $_POST['eenheid'] : "";
-    $prijs = isset($_POST['prijs']) ? addslashes($_POST['prijs']) : "";
-    $prijs = str_replace(",", ".", $prijs);
-    $aantal = isset($_POST['aantal']) ? $_POST['aantal'] : "";
+    $voornaam = isset($_POST['voornaam']) ? addslashes($_POST['voornaam']) : "";
+    $tussenvoegsel = isset($_POST['tussenvoegsel']) ? addslashes($_POST['tussenvoegsel']) : "";
+    $achternaam = isset($_POST['achternaam']) ? addslashes($_POST['achternaam']) : "";
+    $straat = isset($_POST['straat']) ? $_POST['straat'] : "";
+    $postcode = isset($_POST['postcode']) ? $_POST[''] : "";
+    $woonplaats = isset($_POST['prijs']) ? addslashes($_POST['prijs']) : "";
+    $email = isset($_POST['prijs']) ? addslashes($_POST['prijs']) : "";
+    $klas = isset($_POST['aantal']) ? $_POST['aantal'] : "";
+    $email = isset($_POST['prijs']) ? addslashes($_POST['prijs']) : "";
     $qryUpdateStudent = "update Student
                 set artikelnummer='{$artikelnr}', omschrijving='{$omschrijving}', leverancier='{$leverancier}', artikelgroep='{$artikelgroep}', eenheid='{$eenheid}', 
                     prijs='{$prijs}', aantal={$aantal} 
