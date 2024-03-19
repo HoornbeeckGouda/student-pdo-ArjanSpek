@@ -1,6 +1,6 @@
 <?php
 include '../inc/header.php';
-require_once '../classes/Student.php';
+include '../classes/Student.php';
 
 if (isset($_GET["id"])) {
     $Id=$_GET["id"];
@@ -10,15 +10,15 @@ else {
     header('refresh: 1; url=studenten.php');
 }
 ?>
-<div style=" width:50%;">
+
 <?php
 $oStudent = new Student($dbconn);
-$result = $oStudent->displayStudent($Id);
-echo $result;
+$result_edit = $oStudent->query($Id);
+$student=$result_edit->fetch(PDO::FETCH_ASSOC);
 ?>
-</div>
-<div style=" width: 50%; float: left;">
-<form action ="Student.php" method="POST" class="frmDetail">
+
+<div style=" width: 45%; float: left;">
+<form action ="dataverwerken.php" method="POST" class="frmDetail">
         <input type="hidden" name="action" value="UpdateStudent">
         <input type="hidden" name="id" value="<?php echo $Id;?>">
         <label for="fVoornaam">Voornaam:</label>
@@ -30,7 +30,7 @@ echo $result;
         <label for="fStraat">Straat:</label>
         <input type="text" name="straat" value="<?php echo $student["straat"];?>" id="fStraat"><br>
         <label for="fPostcode">Postcode:</label>
-        <input type="text" name="postcode" value="<?php echo $student["posode"];?>" id="fPostcode"><br>
+        <input type="text" name="postcode" value="<?php echo $student["postcode"];?>" id="fPostcode"><br>
         <label for="fWoonplaats">Woonplaats:</label>
         <input type="text" name="woonplaats" value="<?php echo $student["woonplaats"];?>" id="fWoonplaats"><br>
         <label for="fEmail">email:</label>

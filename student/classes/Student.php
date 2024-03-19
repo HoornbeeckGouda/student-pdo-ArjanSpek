@@ -73,32 +73,57 @@ class Student
         $table_student = $table_header . $contentTable . "</table>";
         return $table_student;
     }
-    public function displayStudent($Id) {
+    public function query($Id){
         $qry = "SELECT id, voornaam, tussenvoegsel, achternaam, straat, postcode, woonplaats, email, klas, geboortedatum
         FROM Student
         WHERE id='$Id'";
         $result_edit=$this->conn->prepare($qry);
         $result_edit->execute();
-        $edittable='';
-        while ($rows = $result_edit->fetchAll(PDO::FETCH_ASSOC)) {
-            foreach ($rows as $row) {
-                $edittable .= "<tr>
-                                        <td>" . $row['id'] . "</td><br>
-                                        <td>" . $row['voornaam'] . "</td><br>
-                                        <td>" . $row['tussenvoegsel'] . "</td><br>
-                                        <td>" . $row['achternaam'] . "</td><br>
-                                        <td>" . $row['straat'] . "</td><br>
-                                        <td>" . $row['postcode'] . "</td><br>
-                                        <td>" . $row['woonplaats'] . "</td><br>
-                                        <td>" . $row['email'] . "</td><br>
-                                        <td>" . $row['klas'] . "</td><br>
-                                        <td>" . $row['geboortedatum'] . "</td><br>
-                                    </tr>";
-            }
-        }
-        
-        $table_editstudent = $edittable . "</table>";
-        return $table_editstudent;
+        return $result_edit;
+    }
+    public function updateStudentDetail()
+    {
+        $id = isset($_POST['id']) ? $_POST['id'] : 0;
+        $voornaam = isset($_POST['voornaam']) ? $_POST['voornaam'] : "";
+        $tussenvoegsel = isset($_POST['tussenvoegsel']) ? $_POST['tussenvoegsel'] : "";
+        $achternaam = isset($_POST['achternaam']) ? $_POST['achternaam'] : "";
+        $straat = isset($_POST['straat']) ? $_POST['straat'] : "";
+        $postcode = isset($_POST['postcode']) ? $_POST['postcode'] : "";
+        $woonplaats = isset($_POST['woonplaats']) ? $_POST['woonplaats'] : "";
+        $email = isset($_POST['email']) ? $_POST['email'] : "";
+        $klas = isset($_POST['klas']) ? $_POST['klas'] : "";
+        $geboortedatum = isset($_POST['geboortedatum']) ? $_POST['geboortedatum'] : "";
+
+        // Prepare the SQL query with placeholders
+        $qryUpdateProduct = "UPDATE student SET 
+                                voornaam = :voornaam, 
+                                tussenvoegsel = :tussenvoegsel, 
+                                achternaam = :achternaam, 
+                                straat = :straat, 
+                                postcode = :postcode, 
+                                woonplaats = :woonplaats, 
+                                email = :email, 
+                                klas = :klas, 
+                                geboortedatum = :geboortedatum 
+                            WHERE id = :id";
+
+        // Prepare the statement
+        $update = $this->conn->prepare($qryUpdateProduct);
+
+        // Bind parameters
+        $update->bindParam(':id', $id);
+        $update->bindParam(':voornaam', $voornaam);
+        $update->bindParam(':tussenvoegsel', $tussenvoegsel);
+        $update->bindParam(':achternaam', $achternaam);
+        $update->bindParam(':straat', $straat);
+        $update->bindParam(':postcode', $postcode);
+        $update->bindParam(':woonplaats', $woonplaats);
+        $update->bindParam(':email', $email);
+        $update->bindParam(':klas', $klas);
+        $update->bindParam(':geboortedatum', $geboortedatum);
+
+        // Execute the statement
+        $update->execute(); 
     }
 }
 
