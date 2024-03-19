@@ -84,7 +84,7 @@ class Student
             foreach ($rows as $row) {
                 $edittable .= "<tr>
                                         <td>" . $row['id'] . "</td><br>
-                                        <td>" . $row['voornaam'] . "" . "</td><br>
+                                        <td>" . $row['voornaam'] . "</td><br>
                                         <td>" . $row['tussenvoegsel'] . "</td><br>
                                         <td>" . $row['achternaam'] . "</td><br>
                                         <td>" . $row['straat'] . "</td><br>
