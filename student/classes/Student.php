@@ -96,6 +96,7 @@ class Student
                                     </tr>";
             }
         }
+        
         $table_editstudent = $edittable . "</table>";
         return $table_editstudent;
     }
