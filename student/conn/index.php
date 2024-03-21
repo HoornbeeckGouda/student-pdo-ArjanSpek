@@ -16,8 +16,9 @@
             <input type="text" name="inlognaam" id="fInlog" size="25" placeholder="inlognaam..." class="login-text"><br>
             <label for="fWachtwoord">Wachtwoord:</label><br>
             <input type="password" id="fWachtwoord" name="wachtwoord" size="25" placeholder="wachtwoord..." class="login-text"><br>
-            <input type="submit" name="submit" value="login" class="submit"><br>
+            <input type="submit" name="submit" value="login" class="submit"><br><br>
         </form>
+        <a href="./wachtvergeten.php" style="padding: 10px; border: 1px solid #000; border-radius: 10px; background-color: #fff; text-decoration: none; color: black;">wachtwoord vergeten</a>
     </div>
 </body>
 </html>

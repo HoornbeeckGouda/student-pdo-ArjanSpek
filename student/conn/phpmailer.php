@@ -4,11 +4,11 @@
 
 use PHPMailer\PHPMailer\PHPMailer; 
 
-require 'PHPMailer-master/src/PHPMailer.php'; 
+require '../../PHPMailer-master/src/PHPMailer.php'; 
 
-require 'PHPMailer-master/src/SMTP.php'; 
+require '../../PHPMailer-master/src/SMTP.php'; 
 
-require 'PHPMailer-master/src/Exception.php'; 
+require '../../PHPMailer-master/src/Exception.php'; 
 
 // deze functie stuurt e-mails via je mailaccount... 
 
@@ -25,9 +25,7 @@ function mailen($mailTo, $ontvangerNaam, $onderwerp, $bericht) {
     $mail->SMTPAuth = true; 
 
     $mail->SMTPAutoTLS = false; 
-
-    $mail->SMTPSecure = 
-
+    
     //$mail->SMTPSecure = 'ssl'; 
 
 //Debuginformatie aanzetten… zet deze inproductie uit… 
@@ -36,7 +34,7 @@ function mailen($mailTo, $ontvangerNaam, $onderwerp, $bericht) {
 
     //$mail->Host = 'mail.<leerlingnummer>.hbcdeveloper.nl'; 
 
-    $mail->Host = 'mail.<leerlingnummer>.hbcdeveloper.nl'; 
+    $mail->Host = 'mail.71911.hbcdeveloper.nl'; 
 
     $mail->Port = 587; 
 
@@ -44,9 +42,9 @@ function mailen($mailTo, $ontvangerNaam, $onderwerp, $bericht) {
 
     //Identificeer jezelf bij je mailaccount 
 
-    $mail ->Username = 'd<leerlingnummer>'; 
+    $mail ->Username = 'd71911'; 
 
-    $mail ->Password = '<eigen wachtwoord>'; 
+    $mail ->Password = 'YOGK2nL32cZYvE'; 
 
  
 
@@ -56,7 +54,7 @@ function mailen($mailTo, $ontvangerNaam, $onderwerp, $bericht) {
 
 // ook voor het mailadres staat een h!!! 
 
-    $mail->setFrom("h<leerlingnummer>@<leerlingnummer>.hbcdeveloper.nl", "Naam"); 
+    $mail->setFrom("h71911@71911.hbcdeveloper.nl", "Arjan"); 
 
     $mail->Subject = $onderwerp; 
 

@@ -16,13 +16,13 @@
 
 //include ('registreren.html'); 
 
-include ('bibliotheek/mailen.php'); 
+include ('./phpmailer.php'); 
 
-include('config/dbconfig.php'); 
+include('../db/database.php'); 
 
-$klant = 'Klant B'; 
+$klant = 'jemoeder'; 
 
-$email = '71911@hoornbeeck.nl'; 
+$email = 'arjanspekkie09@gmail.com'; 
 
  
 
