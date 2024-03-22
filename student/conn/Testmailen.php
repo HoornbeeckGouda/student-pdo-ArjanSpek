@@ -16,15 +16,13 @@
 
 //include ('registreren.html'); 
 
+include 'form.php';
+
 include ('./phpmailer.php'); 
 
 include('../db/database.php'); 
 
 $klant = 'jemoeder'; 
-
-$email = 'arjanspekkie09@gmail.com'; 
-
- 
 
 $melding='Testmail'; 
 
@@ -32,7 +30,8 @@ echo '<div id="melding">'.$melding."</div>";
 
 $onderwerp = "Testmail vanuit phpMailer"; 
 
-$bericht = "Geachte $klant, hierbij uw inloggegevens."; 
+$bericht = "Geachte $klant, hierbij uw inloggegevens.
+            administratie + geheim"; 
 
 //mailen... 
 

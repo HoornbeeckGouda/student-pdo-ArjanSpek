@@ -1,14 +1,14 @@
 <html>
   <head>
-    <title>Google recapcha demo - Codeforgeek</title>
+    <title>Wachtwoord reset</title>
     <script src='https://www.google.com/recaptcha/api.js' async defer></script>
   </head>
   <body>
-    <h1>Google reCAPTHA Demo</h1>
+    <h1>wachtwoord reset</h1>
     <form id="comment_form" action="form.php" method="post">
       <input type="email" placeholder="Type your email" size="40"><br><br>
-      <textarea name="comment" rows="8" cols="39"></textarea><br><br>
-      <input type="submit" name="submit" value="Post comment"><br><br>
+      <input type="text" placeholder="gebruikersnaam" size="40"><br><br>
+      <input type="submit" name="submit" value="stuur"><br><br>
       <div class="g-recaptcha" data-sitekey="6LeBN6ApAAAAAPtLW0uCUpkHmttR-duv0s1mELXT"></div>
     </form>
   </body>

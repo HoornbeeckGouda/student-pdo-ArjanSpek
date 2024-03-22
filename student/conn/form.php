@@ -1,10 +1,21 @@
 <?php
-        $email;$comment;$captcha;
+        $email;$captcha;$gebruikersnaam;
         if(isset($_POST['email'])){
           $email=$_POST['email'];
         }
-        if(isset($_POST['comment'])){
-          $comment=$_POST['comment'];
+        if(isset($_POST['gebruikersnaam'])){
+            $gebruikersnaam=$_POST['gebruikersnaam'];
+        }
+        $query = "SELECT inlognaam FROM gebruiker
+            where inlognaam=" . $inlognaam . ";";
+        $result=$dbconn->prepare($query);
+        $result->execute();
+        $aantal = $result->rowCount();
+        if ($aantal >= 1){
+            echo "gebruiker gevonden";
+            exit;
+        } else{
+            header('refresh: 1, wachtvergeten.php');
         }
         if(isset($_POST['g-recaptcha-response'])){
           $captcha=$_POST['g-recaptcha-response'];
@@ -23,6 +34,6 @@
         if($responseKeys["success"]) {
                 header('refresh: 1, Testmailen.php');
         } else {
-                echo '<h2>You are spammer ! Get the @$%K out</h2>';
+                echo '<h2>spammer! Get the @$%K out</h2>';
         }
 ?>
