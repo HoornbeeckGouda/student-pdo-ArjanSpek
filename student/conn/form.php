@@ -1,15 +1,22 @@
 <?php
-        $email;$captcha;$gebruikersnaam;
+        include '../db/database.php';
+        $email='';$captcha='';$gebruikersnaam='';$wachtwoord='';
         if(isset($_POST['email'])){
           $email=$_POST['email'];
         }
         if(isset($_POST['gebruikersnaam'])){
             $gebruikersnaam=$_POST['gebruikersnaam'];
         }
-        $query = "SELECT inlognaam FROM gebruiker
-            where inlognaam=" . $inlognaam . ";";
-        $result=$dbconn->prepare($query);
+        if(isset($_POST['g-recaptcha-response'])){
+          $captcha=$_POST['g-recaptcha-response'];
+        }
+        $query = "SELECT inlognaam, wachtwoord FROM gebruiker WHERE inlognaam ='" . $wachtwoord . "';";
+        $result = $dbconn->prepare($query);
+        $result->bindparam('wachtwoord', $wachtwoord, PDO::PARAM_STR);
+        $result->bindParam(':gebruikersnaam', $gebruikersnaam);
+        echo $wachtwoord;
         $result->execute();
+        echo $wachtwoord;
         $aantal = $result->rowCount();
         if ($aantal >= 1){
             echo "gebruiker gevonden";
@@ -17,10 +24,7 @@
         } else{
             header('refresh: 1, wachtvergeten.php');
         }
-        if(isset($_POST['g-recaptcha-response'])){
-          $captcha=$_POST['g-recaptcha-response'];
-        }
-        if(!$captcha){
+        if(!isset($captcha)){
           echo '<h2>Please check the the captcha form.</h2>';
           exit;
         }
@@ -29,11 +33,17 @@
         // post request to server
         $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
         $response = file_get_contents($url);
-        $responseKeys = json_decode($response,true);
+        $responseKeys = json_decode($response, true);
         // should return JSON with success as true
         if($responseKeys["success"]) {
                 header('refresh: 1, Testmailen.php');
         } else {
                 echo '<h2>spammer! Get the @$%K out</h2>';
+                header('refresh: 1, index.html');
         }
 ?>
+
+
+<!-- Warning: Undefined variable $captcha in C:\xampp\htdocs\student-pdo-ArjanSpek\student\conn\form.php on line 23
+Please check the the captcha form. 
+

@@ -31,7 +31,7 @@ echo '<div id="melding">'.$melding."</div>";
 $onderwerp = "Testmail vanuit phpMailer"; 
 
 $bericht = "Geachte $klant, hierbij uw inloggegevens.
-            administratie + geheim"; 
+            $gebruikersnaam + $wachtwoord"; 
 
 //mailen... 
 
